@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="AdminId" />
+    </Key>
+    <Property Name="AdminId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CourseName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseDuration" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseStartDate" Type="date" Nullable="false" />
+    <Property Name="CourseStatus" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseFee" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseDomain" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseTag" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InstructorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Enrolments">
+    <Key>
+      <PropertyRef Name="EnrolmentId" />
+    </Key>
+    <Property Name="EnrolmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentCourseStartDate" Type="date" Nullable="false" />
+    <Property Name="PercentageCourseCompleted" Type="int" Nullable="false" />
+    <Property Name="CourseDurationLeft" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CoursesCourseId" Type="int" Nullable="false" />
+    <Property Name="StudentStudentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Instructors">
+    <Key>
+      <PropertyRef Name="InstructorId" />
+    </Key>
+    <Property Name="InstructorId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InstructorDob" Type="date" Nullable="false" />
+    <Property Name="InstructorQualification" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InstructorEmailId" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="InstructorLocation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdminId" Type="int" Nullable="false" />
+    <Property Name="InstructorName" Type="nvarchar(max)" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="ModuleId" />
+    </Key>
+    <Property Name="ModuleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModuleContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reviews">
+    <Key>
+      <PropertyRef Name="ReviewId" />
+    </Key>
+    <Property Name="ReviewId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReviewComment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReviewStar" Type="int" Nullable="false" />
+    <Property Name="ReviewDate" Type="date" Nullable="false" />
+    <Property Name="StudentStudentId" Type="int" Nullable="false" />
+    <Property Name="CourseId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Students">
+    <Key>
+      <PropertyRef Name="StudentId" />
+    </Key>
+    <Property Name="StudentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StudentName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentEmail" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentPhoneNo" Type="int" Nullable="false" />
+    <Property Name="StudentLocation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentDob" Type="date" Nullable="false" />
+    <Property Name="StudentInterest" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AdminId" Type="int" Nullable="false" />
+    <Property Name="user_id" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_AdminStudent">
+    <End Role="Admins" Type="Self.Admins" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ASPNETUSERSTUDENT">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+    <End Role="Students" Type="Self.Students" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Students">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoursesModule">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Modules" Type="Self.Modules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Modules">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CoursesReview">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="CourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_instructorNetuser">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Instructors">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_isTakenBy">
+    <End Role="Courses" Type="Self.Courses" Multiplicity="1" />
+    <End Role="Enrolments" Type="Self.Enrolments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Courses">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Enrolments">
+        <PropertyRef Name="CoursesCourseId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Manages">
+    <End Role="Admins" Type="Self.Admins" Multiplicity="1" />
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Admins">
+        <PropertyRef Name="AdminId" />
+      </Principal>
+      <Dependent Role="Instructors">
+        <PropertyRef Name="AdminId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Reviews" Type="Self.Reviews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Reviews">
+        <PropertyRef Name="StudentStudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_StudentEnrolment">
+    <End Role="Students" Type="Self.Students" Multiplicity="1" />
+    <End Role="Enrolments" Type="Self.Enrolments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Students">
+        <PropertyRef Name="StudentId" />
+      </Principal>
+      <Dependent Role="Enrolments">
+        <PropertyRef Name="StudentStudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Teaches">
+    <End Role="Instructors" Type="Self.Instructors" Multiplicity="1" />
+    <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Instructors">
+        <PropertyRef Name="InstructorId" />
+      </Principal>
+      <Dependent Role="Courses">
+        <PropertyRef Name="InstructorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Enrolments" EntityType="Self.Enrolments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Instructors" EntityType="Self.Instructors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reviews" EntityType="Self.Reviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_AdminStudent" Association="Self.FK_AdminStudent">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ASPNETUSERSTUDENT" Association="Self.FK_ASPNETUSERSTUDENT">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Students" EntitySet="Students" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoursesModule" Association="Self.FK_CoursesModule">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Modules" EntitySet="Modules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CoursesReview" Association="Self.FK_CoursesReview">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_instructorNetuser" Association="Self.FK_instructorNetuser">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="Instructors" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_isTakenBy" Association="Self.FK_isTakenBy">
+      <End Role="Courses" EntitySet="Courses" />
+      <End Role="Enrolments" EntitySet="Enrolments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Manages" Association="Self.FK_Manages">
+      <End Role="Admins" EntitySet="Admins" />
+      <End Role="Instructors" EntitySet="Instructors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post" Association="Self.FK_Post">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Reviews" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_StudentEnrolment" Association="Self.FK_StudentEnrolment">
+      <End Role="Students" EntitySet="Students" />
+      <End Role="Enrolments" EntitySet="Enrolments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Teaches" Association="Self.FK_Teaches">
+      <End Role="Instructors" EntitySet="Instructors" />
+      <End Role="Courses" EntitySet="Courses" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
